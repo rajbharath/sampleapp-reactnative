@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-export default function FriendsScreen() {
+export default function HomeScreen() {
   return (
     <View style={styles.container}>
       <Text>Open up Home.js to start working on your app!</Text>
