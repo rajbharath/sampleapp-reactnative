@@ -17,6 +17,7 @@ function LoginScreen(props) {
                 }
             />
             { session.loggingIn && <Text>Please wait logging in</Text> } 
+            { session.error && <Text>Something went wrong</Text> } 
         </View>
     );
 }

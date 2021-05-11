@@ -23,6 +23,7 @@ export const sessionReducer = (state = INITIAL_STATE, action) => {
         return {
             ...state,
             loggedIn: false,
+            loggingIn: false,
             userInfo: {},
             error: action.payload
         }

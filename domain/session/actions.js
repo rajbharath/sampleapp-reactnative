@@ -7,21 +7,19 @@ export const login = (credentials) => {
         });
         // simulating api call. call the api here and use that response
         const response = await loginApi(credentials);
-        setTimeout(() => {
-            if (!response.error) {
-                dispatch({
-                    type: LOGIN,
-                    payload: response,
-                })
-                return;
-            } else {
-                dispatch({
-                    type: LOGIN_ERROR,
-                    payload: response,
-                })
-                return;
-            }
-        }, 2000)
+        if (!response.error) {
+            dispatch({
+                type: LOGIN,
+                payload: response,
+            })
+            return;
+        } else {
+            dispatch({
+                type: LOGIN_ERROR,
+                payload: response,
+            })
+            return;
+        }
     }
 };
 
