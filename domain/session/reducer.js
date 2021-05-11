@@ -1,4 +1,4 @@
-import { LOGIN } from './action_types';
+import { LOGIN, LOGIN_ERROR } from './action_types';
 const INITIAL_STATE = {
   loggedIn: false,
   userInfo: undefined
@@ -10,7 +10,14 @@ export const sessionReducer = (state = INITIAL_STATE, action) => {
         return {
             ...state,
             loggedIn: true,
-            userInfo: {username: 'Murugan'}
+            userInfo: action.payload
+        }
+    case LOGIN_ERROR:
+        return {
+            ...state,
+            loggedIn: false,
+            userInfo: {},
+            error: action.payload
         }
     default:
       return state

@@ -8,7 +8,6 @@ import { useSelector } from 'react-redux';
 const Stack = createStackNavigator();
 export default function Auth(props) {
     const session = useSelector((state) => state.session);
-    console.log(session)
     return (
         session.loggedIn ? (
             <Stack.Navigator>
