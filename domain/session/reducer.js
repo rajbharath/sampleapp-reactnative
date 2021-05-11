@@ -1,11 +1,18 @@
-import { LOGIN, LOGIN_ERROR } from './action_types';
+import { LOGIN, LOGIN_ERROR, LOGIN_IN_PROGRESS, LOGOUT } from './action_types';
 const INITIAL_STATE = {
   loggedIn: false,
-  userInfo: undefined
+  loggingIn: false,
+  userInfo: undefined,
+  error: undefined
 };
  
 export const sessionReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
+    case LOGIN_IN_PROGRESS:
+        return {
+            ...state,
+            loggingIn: true
+        }
     case LOGIN:
         return {
             ...state,
@@ -18,6 +25,10 @@ export const sessionReducer = (state = INITIAL_STATE, action) => {
             loggedIn: false,
             userInfo: {},
             error: action.payload
+        }
+    case LOGOUT:
+        return {
+            ...INITIAL_STATE
         }
     default:
       return state

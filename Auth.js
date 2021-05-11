@@ -6,7 +6,7 @@ import HomeScreen from './HomeScreen';
 import { useSelector } from 'react-redux';
 
 const Stack = createStackNavigator();
-export default function Auth(props) {
+export default function Auth() {
     const session = useSelector((state) => state.session);
     return (
         session.loggedIn ? (

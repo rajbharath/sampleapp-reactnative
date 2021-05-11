@@ -1,12 +1,12 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
-import { connect } from 'react-redux';
+import { connect, useSelector } from 'react-redux';
 import { login } from './actions';
 
 
 
 function LoginScreen(props) {
-
+    const session = useSelector(state => state.session);
     return (
         <View style={styles.container}>
             <Text>Login</Text>
@@ -16,6 +16,7 @@ function LoginScreen(props) {
                     props.onLogin({ username: "Murugan", password: "asdasdadasdasd" })
                 }
             />
+            { session.loggingIn && <Text>Please wait logging in</Text> } 
         </View>
     );
 }
