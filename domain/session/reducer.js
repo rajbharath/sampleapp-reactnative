@@ -1,4 +1,4 @@
-import { LOGIN, LOGIN_ERROR, LOGIN_IN_PROGRESS, LOGOUT } from './action_types';
+import { LOGIN, LOGIN_ERROR, LOGIN_IN_PROGRESS, LOGOUT } from './actionTypes';
 const INITIAL_STATE = {
   loggedIn: false,
   loggingIn: false,
