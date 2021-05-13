@@ -1,19 +1,23 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
-import { connect, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { login } from './actions';
 
 
 
-function LoginScreen(props) {
+export default function LoginScreen(props) {
     const session = useSelector(state => state.session);
+    
+    const dispatch = useDispatch();
+    const onLogin = (credentials) => dispatch(login(credentials));
+
     return (
         <View style={styles.container}>
             <Text>Login</Text>
             <Button
                 title="Login"
                 onPress={() =>
-                    props.onLogin({ username: "Murugan", password: "asdasdadasdasd" })
+                    onLogin({ username: "Murugan", password: "asdasdadasdasd" })
                 }
             />
             { session.loggingIn && <Text>Please wait logging in</Text> } 
@@ -30,11 +34,3 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
 });
-
-const mapDispatchToProps = (dispatch) => {
-    return {
-        onLogin: (credentials) => dispatch(login(credentials)),
-    }
-}
-
-export default connect(null, mapDispatchToProps)(LoginScreen)
